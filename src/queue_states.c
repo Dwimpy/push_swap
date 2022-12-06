@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:16:21 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/05 21:16:47 by arobu            ###   ########.fr       */
+/*   Updated: 2022/12/06 17:11:19 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 */
 int	is_empty(t_queue *queue)
 {
-	return (queue->rear == NULL);
+	if (queue -> rear == NULL)
+		return (1);
+	return (0); 
 }
 
 /**

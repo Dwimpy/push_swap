@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:12:56 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/05 20:10:09 by arobu            ###   ########.fr       */
+/*   Updated: 2022/12/06 21:50:33 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ typedef struct s_qnode
 {
 	int			value;
 	t_qnode		*next_node;
+	t_qnode		*prev_node;
 }				t_qnode;
 
 typedef struct s_queue
 {
 	t_qnode		*front;
 	t_qnode		*rear;
+	int			size;
 }				t_queue;
 
 t_qnode		*new_node(int value);

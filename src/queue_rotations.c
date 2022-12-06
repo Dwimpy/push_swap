@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:06:13 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/05 21:15:19 by arobu            ###   ########.fr       */
+/*   Updated: 2022/12/06 17:23:12 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@
 */
 void	rotate(t_queue *queue)
 {
-	enqueue(queue, queue->front->value);
-	dequeue(queue);
+	if (queue -> front != NULL)
+	{
+		enqueue(queue, queue->front->value);
+		dequeue(queue);
+	}
 }
 
 /**
@@ -45,23 +48,24 @@ void	rotate_ab(t_queue *queue_a, t_queue *queue_b)
  * @param Queue List to perform reverse rotation.
  * @return (void)
 */
+
 void	reverse_rotate(t_queue *queue)
 {
-	t_qnode	*tmp_last;
-	t_qnode	*second_last;
-
-	if (is_empty(queue))
+	t_qnode	*new_last;
+	t_qnode *new_first;
+	
+	if (is_empty(queue) \
+	|| queue -> front -> next_node == NULL \
+	|| queue -> rear -> prev_node == NULL)
 		return ;
-	tmp_last = queue -> front;
-	while (tmp_last -> next_node != NULL)
-	{
-		second_last = tmp_last;
-		tmp_last = tmp_last -> next_node;
-	}
-	second_last -> next_node = NULL;
-	queue -> rear = second_last;
-	tmp_last -> next_node = queue -> front;
-	queue -> front = tmp_last;
+
+	new_first = queue -> rear; 
+	queue -> rear = queue -> rear -> prev_node;
+	new_first -> next_node = queue -> front;
+	queue -> front -> prev_node = new_first;
+	queue -> front = queue -> front -> prev_node;
+	queue -> rear -> next_node = NULL;
+	queue -> front -> prev_node = NULL;
 }
 
 /**

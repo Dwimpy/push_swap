@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2022/12/05 18:30:45 by arobu            ###   ########.fr        #
+#    Updated: 2022/12/06 19:46:20 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MAIN_FILE		= main.c
 # Compiler
 
 CC			= gcc
-CFLAGS		= #-Wall -Werror -Wextra #-fsanitize=address -g3
+CFLAGS		= #-fsanitize=address -g3 #-Wall -Werror -Wextra 
 LDLFLAGS	= -L./libft/ -lft
 
 #Archive and Remove
@@ -46,7 +46,7 @@ WHITE = \033[0;97m
 PUSH_SWAP_SRCS	=	$(wildcard $(SRC_DIR)/*.c)
 PUSH_SWAP_OBJS	= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(PUSH_SWAP_SRCS))
 
-all:   $(NAME)
+all:  $(NAME)
 
 $(NAME): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PUSH_SWAP_OBJS) $(MAIN_FILE) $(LDLFLAGS)

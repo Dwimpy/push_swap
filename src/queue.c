@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:17:30 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/05 21:16:57 by arobu            ###   ########.fr       */
+/*   Updated: 2022/12/06 21:51:57 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_qnode	*new_node(int value)
 		return (NULL);
 	node -> value = value;
 	node -> next_node = NULL;
+	node -> prev_node = NULL;
 	return (node);
 }
 
@@ -50,6 +51,7 @@ t_queue	*create_queue(void)
 		return (NULL);
 	queue -> front = NULL;
 	queue -> rear = NULL;
+	queue -> size = 0;
 	return (queue);
 }
 
@@ -76,9 +78,11 @@ void	enqueue(t_queue *queue, int value)
 	}
 	else
 	{
-		queue->rear->next_node = node;
-		queue->rear = node;
+		node -> prev_node = queue -> rear;
+		queue -> rear -> next_node = node;
+		queue -> rear = node;
 	}
+	queue->size++;
 }
 
 /**
@@ -87,6 +91,7 @@ void	enqueue(t_queue *queue, int value)
  * do nothing else it updates the front node to
  * the next value in the list.
  * @param queue List to be modified
+ * @details what is this
  * @return (void)
 */
 void	dequeue(t_queue *queue)
@@ -96,8 +101,15 @@ void	dequeue(t_queue *queue)
 	if (is_empty(queue))
 		return ;
 	current_front = queue->front;
-	queue->front = queue->front->next_node;
+	if (queue -> front -> next_node != NULL)
+	{
+		queue->front = queue->front->next_node;
+		queue -> front -> prev_node = NULL;
+	}
+	else
+		queue -> front = NULL;
 	if (queue->front == NULL)
 		queue->rear = NULL;
+	queue->size--;
 	free(current_front);
 }

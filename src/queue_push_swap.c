@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:19:46 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/05 20:40:38 by arobu            ###   ########.fr       */
+/*   Updated: 2022/12/06 19:57:52 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,26 @@ void	push_top(t_queue *destination, t_queue *source)
 {
 	t_qnode	*tmp_node;
 
-	if (is_empty(source) || source -> front -> next_node == NULL)
+	if (is_empty(source))
 		return ;
-	tmp_node = source -> front;
-	source -> front = source -> front -> next_node;
-	tmp_node->next_node = destination -> front;
-	destination -> front = tmp_node;
+	if (is_empty(destination) && source -> front -> next_node == NULL)
+	{
+		enqueue(destination, source -> front -> value);
+		dequeue(source);
+	}
+	else if (source -> front -> next_node == NULL)
+	{
+		tmp_node = new_node(source -> front -> value);
+		tmp_node -> next_node = destination -> front;
+		destination -> front = tmp_node;
+		dequeue(source);
+	}
+	else
+	{
+		tmp_node = new_node(source -> front -> value);
+		tmp_node -> next_node = destination -> front;
+		destination -> front -> prev_node = tmp_node;
+		destination -> front = destination -> front -> prev_node;
+		dequeue(source);
+	}
 }
