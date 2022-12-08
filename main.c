@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:09 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/06 22:26:29 by arobu            ###   ########.fr       */
+/*   Updated: 2022/12/08 06:23:47 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 int main(int argc, char *argv[])
 {
 
-
+	if (argc == 1)
+		return (0);
 	push_swap(argc, argv);
-	get_minrun(5124);
+
 	// int keys[] = {1, 2};
 	// int keys2[] = {3, 4, 5, 6};
 	// int n = sizeof(keys)/sizeof(keys[0]);

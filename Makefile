@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2022/12/06 19:46:20 by arobu            ###   ########.fr        #
+#    Updated: 2022/12/08 04:42:10 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ WHITE = \033[0;97m
 PUSH_SWAP_SRCS	=	$(wildcard $(SRC_DIR)/*.c)
 PUSH_SWAP_OBJS	= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(PUSH_SWAP_SRCS))
 
-all:  $(NAME)
+all: libft $(NAME)
 
 $(NAME): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PUSH_SWAP_OBJS) $(MAIN_FILE) $(LDLFLAGS)
@@ -74,7 +74,7 @@ show:
 fclean:		clean
 			@$(RM) -f $(NAME)
 			@echo "$(CYAN)Executables successfully cleaned!$(DEF_COLOR)"
-#			@$(RM) -f $(LIBFT_LIB)
+			@$(RM) -f $(LIBFT_LIB)
 
 
 re:			fclean all

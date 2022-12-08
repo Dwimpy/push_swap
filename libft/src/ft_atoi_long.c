@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 21:27:14 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/08 06:48:30 by arobu            ###   ########.fr       */
+/*   Created: 2022/12/08 04:38:38 by arobu             #+#    #+#             */
+/*   Updated: 2022/12/08 04:39:23 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <limits.h>
 
-void	push_swap(int argc, char **argv)
+long	ft_atoi(const char *s)
 {
-	t_push_swap push_swap_data;
-	
-	initialize_data(&push_swap_data);
-	parse_args(&push_swap_data, argc, argv);
-	if (check_duplicates(push_swap_data.stack_a -> front) == 1)
+	long			sum;
+	int				sign;
+
+	sum = 0;
+	sign = 1;
+	while (ft_isspace3(*s))
+		s++;
+	if (*s == '-')
+		sign = -1;
+	if (*s == '+' || *s == '-')
+		s++;
+	while (*s)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
+		if (ft_isdigit(*s))
+			sum = sum * 10 + (*s - '0');
+		else
+			break ;
+		s++;
 	}
-	push_swap_data.min_run = get_minrun(push_swap_data.sample_size);
-	initialize_runs(&push_swap_data);
+	return (sign * sum);
 }
