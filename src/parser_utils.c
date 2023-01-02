@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobu <arobu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 08:25:03 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/17 11:08:58 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/01 20:01:32 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ t_parsed_data	get_data(int argc, char **argv)
 		parsed_data.size++;
 		i++;
 	}
+	free(data);
+	ft_free(str);
 	return (parsed_data);
 }
 

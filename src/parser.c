@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobu <arobu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 06:43:50 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/17 19:17:15 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/01 19:59:39 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	parse_arguments(int argc, char **argv)
 	
 	constraints = (t_constraints) {0, 0, 0};
 	args = create_argument(argc, argv);
-
 	if (args != NULL)
 	{
 		split_args = ft_split(args, ' ');
@@ -32,12 +31,12 @@ void	parse_arguments(int argc, char **argv)
 	}
 	free(args);
 	input_checker(&constraints, argc, split_args, args_size);
+	ft_free(split_args);
 	if (invalid_input(constraints))
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
-	ft_free(split_args);
 }
 
 void	input_checker(t_constraints *constraints, int argc, \
@@ -72,7 +71,7 @@ char	*create_argument(int argc, char **argv)
 		while (++i < argc)
 		{
 			tmp = str;
-			str = ft_strjoin_three(tmp, " ", argv[i]);
+			str = ft_strjoin_three(str, " ", argv[i]);
 			free(tmp);
 		}
 	}

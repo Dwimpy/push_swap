@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_op.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 00:55:11 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/01 19:30:13 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/01 18:09:34 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/02 13:21:31 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/parser.h"
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	sa(t_push_swap **data)
 {
-	t_parsed_data parsed_data;
+	swap((*data)->stack_a);
+}
 
-	parse_arguments(argc, argv);
-	parsed_data = get_data(argc, argv);
-	push_swap(&parsed_data);
-	free_parser(&parsed_data);
+void	sb(t_push_swap **data)
+{
+	swap((*data)->stack_b);
+}
+
+void	ss(t_push_swap **data)
+{
+	swap((*data)->stack_a);
+	swap((*data)->stack_b);
+}
+
+void	pa(t_push_swap **data)
+{
+	push((*data)->stack_a, (*data)->stack_b);
+}
+
+void	pb(t_push_swap **data)
+{
+	push((*data)->stack_b, (*data)->stack_a);
 }

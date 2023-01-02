@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 21:33:28 by arobu             #+#    #+#             */
-/*   Updated: 2022/11/25 19:18:52 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/01 19:51:27 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_strjoin_three(const char *s1, const char *s2, \
 						const char *s3)
 {
 	char	*joint_string;
+	char	*begin;
 	size_t	s1_len;
 	size_t	s2_len;
 	size_t	s3_len;
@@ -27,6 +28,7 @@ char	*ft_strjoin_three(const char *s1, const char *s2, \
 	s3_len = ft_strlen(s3);
 	joint_string = (char *)malloc(sizeof(char) * \
 					(s1_len + s2_len + s3_len + 1));
+	begin = joint_string;
 	if (!joint_string)
 		return (NULL);
 	while (*s1)
@@ -36,5 +38,5 @@ char	*ft_strjoin_three(const char *s1, const char *s2, \
 	while (*s3)
 		*joint_string++ = *s3++;
 	*joint_string = '\0';
-	return (joint_string - s1_len - s2_len - s3_len);
+	return (begin);
 }

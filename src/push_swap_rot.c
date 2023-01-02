@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_rot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 00:55:11 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/01 19:30:13 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/01 18:13:10 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/02 13:21:54 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/parser.h"
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
+void	ra(t_push_swap **data)
 {
-	t_parsed_data parsed_data;
+	rotate((*data)->stack_a);
+}
 
-	parse_arguments(argc, argv);
-	parsed_data = get_data(argc, argv);
-	push_swap(&parsed_data);
-	free_parser(&parsed_data);
+void	rb(t_push_swap **data)
+{
+	rotate((*data)->stack_b);
+}
+
+void	rr(t_push_swap **data)
+{
+	rotate((*data)->stack_a);
+	rotate((*data)->stack_b);
+}
+
+void	rra(t_push_swap **data)
+{
+	r_rotate((*data)->stack_a);
+}
+
+void	rrb(t_push_swap **data)
+{
+	r_rotate((*data)->stack_b);
 }

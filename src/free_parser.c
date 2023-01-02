@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 00:55:11 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/01 19:30:13 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/01 19:26:51 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/02 13:14:48 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/parser.h"
-#include "push_swap.h"
+#include "../include/parser.h"
 
-int	main(int argc, char **argv)
+void	free_parser(t_parsed_data *p_data)
 {
-	t_parsed_data parsed_data;
-
-	parse_arguments(argc, argv);
-	parsed_data = get_data(argc, argv);
-	push_swap(&parsed_data);
-	free_parser(&parsed_data);
+	free(p_data->arguments);
 }

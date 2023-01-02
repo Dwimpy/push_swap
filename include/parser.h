@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arobu <arobu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:33:53 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/17 17:43:26 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/02 13:15:00 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int				get_size(char **split_args);
 int 			is_sorted(char **split_args, int args_size);
 void			ft_free(char **str);
 t_parsed_data	get_data(int argc, char **argv);
+void			free_parser(t_parsed_data *p_data);
 
 #endif
