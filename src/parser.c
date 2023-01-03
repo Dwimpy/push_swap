@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 06:43:50 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/01 19:59:39 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 03:12:30 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	parse_arguments(int argc, char **argv)
 	}
 	free(args);
 	input_checker(&constraints, argc, split_args, args_size);
-	ft_free(split_args);
 	if (invalid_input(constraints))
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
+	ft_free(split_args);
 }
 
 void	input_checker(t_constraints *constraints, int argc, \

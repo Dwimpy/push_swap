@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:44:26 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 15:37:52 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 03:29:13 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ t_node	*copy_node(t_node *node)
 	c_node->cost_a = node->cost_a;
 	c_node->cost_b = node->cost_b;
 	c_node->index = node->index;
+	c_node->position = node->position;
+	c_node->sorted_position = node->sorted_position;
 	return (c_node);
 }
 

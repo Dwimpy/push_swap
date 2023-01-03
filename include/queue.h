@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:51:00 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 15:41:06 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 03:44:50 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_node
 	int		index;
 	int		cost_a;
 	int		cost_b;
+	int		position;
+	int		sorted_position;
 	t_node	*next;
 	t_node	*prev;
 	
