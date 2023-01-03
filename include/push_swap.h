@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:54:38 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 13:19:36 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/02 22:01:49 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,20 @@ typedef struct s_push_swap
 	t_queue *stack_b;
 	int		lowest_index;
 	int		highest_index;
+	int		operation_count;
 }				t_push_swap;
 
-void	push_swap(t_parsed_data *data);
+void	push_swap(t_parsed_data *input_data);
 int		*bubble_sort(t_push_swap *data);
 void	assign_index_to_nodes(t_push_swap **data);
+void	push_to_b(t_push_swap **data);
+void	sort_initial_values(t_push_swap **data);
+void	push_swap_init(t_push_swap **data, t_parsed_data *input_data);
+void	calculate_cost(t_push_swap **data);
+void	get_best_move(t_push_swap **data, int **arr);
+void	execute_best_move(t_push_swap **data, int *arr);
+void	rotate_stack_to_lowest(t_push_swap **data);
+
 void	sa(t_push_swap **data);
 void	sb(t_push_swap **data);
 void	ss(t_push_swap **data);

@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:59:01 by arobu             #+#    #+#             */
-/*   Updated: 2022/12/30 01:56:37 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/02 15:30:16 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_node *new_node(int value)
 	new_node->index = 0;
 	new_node->next = NULL;
 	new_node->prev = NULL;
+	return (new_node);
 }
 
 t_queue	*create_queue()
@@ -36,6 +37,7 @@ t_queue	*create_queue()
 	queue->lowest_index = 0;
 	queue->operations = 0;
 	queue->size = 0;
+	return (queue);
 }
 
 int	is_empty(t_queue *queue)

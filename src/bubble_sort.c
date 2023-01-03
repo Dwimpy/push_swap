@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 21:03:35 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 13:13:50 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/02 15:42:34 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	assign_index_to_nodes(t_push_swap **data)
 				i++;
 				break ;
 			}
-			first = first -> next;	
+			first = first -> next;
 		}
-	}	
+	}
+	free(arr);
 }

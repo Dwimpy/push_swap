@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:56:31 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/01 17:48:38 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 00:24:52 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ void	rotate(t_queue *stack)
 	if (is_empty(stack) || stack->front == stack->rear)
 		return ;
 	first = stack->front;
-	last = stack->rear;
-	stack->front = stack->front->next;
-	stack->front->prev = NULL;
+	first -> prev = stack->rear;
 	stack->rear->next = first;
 	stack->rear = stack->rear->next;
-	stack->rear->prev = last;
+	stack->front = stack->front->next;
+	stack->front->prev = NULL;
 	stack->rear->next = NULL;
 }
 
@@ -83,5 +82,6 @@ void	push(t_queue *destination, t_queue *source)
 		new_node->next = destination->front;
 		destination->front = new_node;
 	}
+	destination->size++;
 	dequeue(source);
 }

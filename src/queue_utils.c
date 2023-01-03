@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_rrr.c                                    :+:      :+:    :+:   */
+/*   queue_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 18:15:33 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 21:42:52 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/02 15:38:52 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/02 17:06:20 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/queue.h"
 
-void	rrr(t_push_swap **data)
+void	display_queue(t_queue *queue)
 {
-	r_rotate((*data)->stack_a);
-	r_rotate((*data)->stack_b);
-	(*data)->operation_count--;
+	t_node	*first;
+
+	first = queue->front;
+	ft_printf("Node Values: \n");
+	while (first != NULL)
+	{
+		ft_printf("Data: %d\t", first->data);
+		ft_printf("Cost A: %d\t", first->cost_a);
+		ft_printf("Cost B: %d\t", first->cost_b);
+		ft_printf("Index: %d\n", first->index);
+		first = first->next;
+	}
 }
