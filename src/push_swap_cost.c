@@ -6,11 +6,12 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:43:09 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 00:56:20 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:31:07 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
 int		get_cost_a_out_bounds(t_node *a, t_node *b);
 int		get_cost_a_in_bounds(t_node *a, int lowest_index);
 void	update_cost_a(t_node	**b, int cost_a, int size_a);
@@ -22,7 +23,7 @@ void	calculate_cost(t_push_swap **data)
 	t_node	*b;
 	int		cost_a;
 	int		cost_b;
-	
+
 	a = (*data)->stack_a->front;
 	b = (*data)->stack_b->front;
 	cost_b = 0;
@@ -43,7 +44,7 @@ void	calculate_cost(t_push_swap **data)
 int	get_cost_a_out_bounds(t_node *a, t_node *b)
 {
 	int	cost_a;
-	
+
 	cost_a = 1;
 	while (a->next != NULL)
 	{
@@ -58,7 +59,7 @@ int	get_cost_a_out_bounds(t_node *a, t_node *b)
 int	get_cost_a_in_bounds(t_node *a, int lowest_index)
 {
 	int	cost_a;
-	
+
 	cost_a = 0;
 	while (a->index != lowest_index)
 	{

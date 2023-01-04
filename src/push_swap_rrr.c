@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:15:33 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 21:42:52 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 21:39:04 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rrr(t_push_swap **data)
 {
-	r_rotate((*data)->stack_a);
-	r_rotate((*data)->stack_b);
+	r_rotate((**data).stack_a);
+	r_rotate((**data).stack_b);
 	(*data)->operation_count--;
 }

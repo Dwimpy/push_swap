@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:51:00 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 03:44:50 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:41:52 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ typedef struct s_node
 	int		index;
 	int		cost_a;
 	int		cost_b;
-	int		position;
-	int		sorted_position;
 	t_node	*next;
 	t_node	*prev;
 	
@@ -54,6 +52,9 @@ void	rotate(t_queue *stack);
 void	r_rotate(t_queue *stack);
 void	swap(t_queue *stack);
 void	push(t_queue *destination, t_queue *source);
+t_node	*copy_node(t_node *node);
+t_node	*swap_nodes(t_node *node1, t_node *node2);
+int		*copy_queue(t_queue *stack);
 void	display_queue(t_queue *queue);
 
 #endif

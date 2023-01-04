@@ -7,6 +7,8 @@
 		"string": "c",
 		"string_view": "c",
 		"vector": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"__split_buffer": "c",
+		"memory": "c"
 	}
 }

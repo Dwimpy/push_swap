@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:56:31 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 00:24:52 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:23:37 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,51 @@
 
 void	rotate(t_queue *stack)
 {
-	t_node	*first;
-	t_node	*last;
+	t_node	*new_last;
 	
 	if (is_empty(stack) || stack->front == stack->rear)
 		return ;
-	first = stack->front;
-	first -> prev = stack->rear;
-	stack->rear->next = first;
-	stack->rear = stack->rear->next;
-	stack->front = stack->front->next;
-	stack->front->prev = NULL;
-	stack->rear->next = NULL;
+	new_last = stack -> front; 
+	stack->front = stack -> front -> next;
+	stack -> rear -> next = new_last;
+	new_last -> prev = stack -> rear;
+	stack -> rear = stack -> rear -> next;
+	stack -> rear -> next = NULL;
+	stack -> front -> prev = NULL;
 }
 
 void	r_rotate(t_queue *stack)
 {
-	t_node	*last;
+	t_node	*new_first;
 
 	if (is_empty(stack) || stack->front == stack->rear)
 		return ;
-	last = stack->rear;
-	stack->rear = stack->rear->prev;
-	stack->rear->next = NULL;
-	stack->front->prev = last;
-	last->next = stack->front;
-	stack->front = last;
-	stack->front->prev = NULL;
+
+	new_first = stack -> rear;
+	stack -> rear = stack -> rear -> prev;
+	new_first -> next = stack -> front;
+	stack -> front -> prev = new_first;
+	stack -> front = stack -> front -> prev;
+	stack -> rear -> next = NULL;
+	stack -> front -> prev = NULL;
 }
 
 void	swap(t_queue *stack)
 {
-	t_node	*first;
-	t_node	*second;
+	t_node *first;
+	t_node *second;
+	t_node *third;
 
 	if (is_empty(stack) || stack->front == stack->rear)
 		return ;
-	first = stack->front;
-	second = stack->front->next;
-	stack->front = stack->front->next;
-	first->next = stack->front->next;
-	stack->front = first;
-	stack->front->prev = second;
-	second->next = stack->front;
-	second->prev = NULL;
+	first = stack -> front;
+	second = first -> next;
+	third = second -> next;
+	third -> prev = first;
+	first -> next = third;
+	first -> prev = second;
+	second -> next = first;
+	second -> prev = NULL;
 	stack->front = second;
 }
 
@@ -78,8 +79,8 @@ void	push(t_queue *destination, t_queue *source)
 	}
 	else
 	{
-		destination->front->prev = new_node;
 		new_node->next = destination->front;
+		destination->front->prev = new_node;
 		destination->front = new_node;
 	}
 	destination->size++;

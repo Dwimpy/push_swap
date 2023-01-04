@@ -6,9 +6,11 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 19:06:07 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 01:02:26 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:35:56 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../include/push_swap.h"
 
 #include "../include/push_swap.h"
 
@@ -78,7 +80,5 @@ void	execute_best_move(t_push_swap **data, int *arr)
 		(*data)->lowest_index = (*data)->stack_b->front->index;
 	else if ((*data)->stack_b->front->index > (*data)->highest_index)
 		(*data)->highest_index = (*data)->stack_b->front->index;
-	// ft_printf("Pushing: %d\t between %d and %d\n", (*data)->stack_b->front->data, (*data)->stack_a->front->data, (*data)->stack_a->rear->data);
-	// ft_printf("Pushing Index: %d\t between %d and %d\n", (*data)->stack_b->front->index, (*data)->stack_a->front->index, (*data)->stack_a->rear->index);
 	pa(data);
 }

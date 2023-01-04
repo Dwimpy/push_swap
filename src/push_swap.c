@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:56:06 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 01:02:15 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:39:48 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 void	push_swap(t_parsed_data *input_data)
 {	
+	t_push_swap *ps_data;
 	t_push_swap *data;
 	int			*costs;
-	int i;
-	int	j;
 
-	j = 0;
 	costs = (int *)malloc(sizeof(int) * 2);
 	push_swap_init(&data, input_data);
 	assign_index_to_nodes(&data);

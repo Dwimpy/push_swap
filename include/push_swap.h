@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:54:38 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 22:01:49 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:42:00 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ void	rr(t_push_swap **data);
 void	rra(t_push_swap **data);
 void	rrb(t_push_swap **data);
 void	rrr(t_push_swap **data);
+
 #endif

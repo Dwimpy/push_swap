@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 18:47:45 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 01:02:23 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/03 23:41:29 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_best_move(t_push_swap **data, int **arr)
 	int		best_move;
 	int		cheapest_index;
 	t_node	*first;
-	
+
 	best_move = INT_MAX;
 	cheapest_index = INT_MAX;
 	first = (*data)->stack_b->front;
@@ -40,7 +40,4 @@ void	get_best_move(t_push_swap **data, int **arr)
 		}
 		first = first->next;
 	}
-
-	ft_printf("Cheapest Index: %d\t", cheapest_index);
-	ft_printf("Lowest Index: %d\n", (*data)->lowest_index);
 }
