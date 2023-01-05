@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 08:25:03 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 03:09:56 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/04 22:06:56 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int get_size(char **split_args)
 
 int	invalid_input(t_constraints c)
 {
-	return (c.has_duplicates == 1 || c.invalid_input == 1 || c.no_arguments == 1);
+	return (c.has_duplicates == 1 || c.invalid_input == 1 \
+		|| c.no_arguments == 1 || c.invalid_limit == 1);
 }
 
 int is_sorted(char **split_args, int args_size)

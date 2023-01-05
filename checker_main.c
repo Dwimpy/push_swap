@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 00:55:11 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:39:26 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/04 22:22:28 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/04 23:39:06 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/parser.h"
-#include "push_swap.h"
+#include "include/checker.h"
 
 int	main(int argc, char **argv)
 {
 	t_parsed_data	parsed_data;
 	int				is_checker;
 
-	is_checker = 0;
+	is_checker = 1;
 	parse_arguments(argc, argv, is_checker);
 	parsed_data = get_data(argc, argv);
-	push_swap(&parsed_data);
-	free_parser(&parsed_data);
+	checker(&parsed_data);
+	//free_parser(&parsed_data);
 }

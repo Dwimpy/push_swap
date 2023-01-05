@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 06:43:50 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 03:12:30 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/04 23:41:04 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 void	input_checker(t_constraints *constraints, int argc, \
 					char **split_args, int args_size);
 
-void	parse_arguments(int argc, char **argv)
+void	parse_arguments(int argc, char **argv, int is_checker)
 {
 	char	*args;
 	char	**split_args;
 	int		args_size;
 	t_constraints constraints;
 	
-	constraints = (t_constraints) {0, 0, 0};
+	constraints = (t_constraints) {0, 0, 0, 0};
+	constraints.is_checker = is_checker;
 	args = create_argument(argc, argv);
 	if (args != NULL)
 	{
@@ -46,9 +47,11 @@ void	input_checker(t_constraints *constraints, int argc, \
 		constraints->no_arguments = 1;
 	else if (is_valid_data(split_args, args_size) == 1)
 		constraints->invalid_input = 1;
+	else if (check_int_max(split_args, args_size) == 1)
+		constraints->invalid_limit = 1;
 	else if (check_duplicates(split_args, args_size) == 1)
 		constraints->has_duplicates = 1;
-	else if (is_sorted(split_args, args_size))
+	else if (is_sorted(split_args, args_size) && !constraints->is_checker)
 	{
 		ft_free(split_args);
 		exit(EXIT_SUCCESS);

@@ -6,23 +6,25 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2023/01/03 16:15:11 by arobu            ###   ########.fr        #
+#    Updated: 2023/01/04 23:08:53 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
 NAME			= push_swap
+CHECKER			= checker
 INCLUDE			= -I include/
 SRC_DIR			= ./src
 OBJ_DIR			= ./obj
 LIBFT_FOLDER	= ./libft
 LIBFT_LIB		= ./libft/libft.a
 MAIN_FILE		= main.c
+MAIN_CHECKER	= checker_main.c
 # Compiler
 
-CC			= gcc
-CFLAGS		=-fsanitize=address -g3 #-Wall -Werror -Wextra 
+CC			= cc
+CFLAGS		= #-fsanitize=address -g3 #-Wall -Werror -Wextra 
 LDLFLAGS	= -L./libft/ -lft
 
 #Archive and Remove
@@ -62,10 +64,6 @@ $(OBJ_DIR):
 libft:
 			@make all -C $(LIBFT_FOLDER)
 
-show:
-	echo $(PIPEX_SRCS)
-	echo $(PIPEX_OBJS)
-
  clean:
 			@$(RM) -rdf $(OBJ_DIR)
 			@make clean -C $(LIBFT_FOLDER)
@@ -73,13 +71,18 @@ show:
 
 fclean:		clean
 			@$(RM) -f $(NAME)
+			@$(RM) -f $(CHECKER)
 			@echo "$(CYAN)Executables successfully cleaned!$(DEF_COLOR)"
 #			@$(RM) -f $(LIBFT_LIB)
 
 
 re:			fclean all
 
-bonus: 	$(NAME)
+bonus:	$(CHECKER) 	
+
+$(CHECKER): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PUSH_SWAP_OBJS) $(MAIN_CHECKER) $(LDLFLAGS)
+	@echo "$(CYAN)Push Swap built successfully.$(DEF_COLOR)"
 
 norm:
 			@norminette $(SRC_DIR) $(INCLUDE) | grep -v OK

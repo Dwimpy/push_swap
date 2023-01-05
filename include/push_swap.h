@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:54:38 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:42:00 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/04 23:12:07 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_push_swap
 	int		lowest_index;
 	int		highest_index;
 	int		operation_count;
+	id_t	is_checker;
 }				t_push_swap;
 
 void	push_swap(t_parsed_data *input_data);
@@ -35,6 +36,7 @@ void	calculate_cost(t_push_swap **data);
 void	get_best_move(t_push_swap **data, int **arr);
 void	execute_best_move(t_push_swap **data, int *arr);
 void	rotate_stack_to_lowest(t_push_swap **data);
+void	ft_free_ps_data(t_push_swap *data);
 
 void	sa(t_push_swap **data);
 void	sb(t_push_swap **data);

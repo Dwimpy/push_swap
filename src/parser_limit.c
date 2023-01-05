@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser_limit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 00:55:11 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:39:26 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/04 16:13:33 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/04 22:06:10 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/parser.h"
-#include "push_swap.h"
+#include "../include/parser.h"
 
-int	main(int argc, char **argv)
+int	check_int_max(char **split_args, int args_size)
 {
-	t_parsed_data	parsed_data;
-	int				is_checker;
+	int		i;
+	long	number;
 
-	is_checker = 0;
-	parse_arguments(argc, argv, is_checker);
-	parsed_data = get_data(argc, argv);
-	push_swap(&parsed_data);
-	free_parser(&parsed_data);
+	i = 0;
+	while (i < args_size)
+	{
+		number = ft_atoi_long(split_args[i]);
+		if (number > INT_MAX || number < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
 }

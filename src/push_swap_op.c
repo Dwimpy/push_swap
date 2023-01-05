@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:09:34 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:04:38 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/04 23:14:00 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void	sa(t_push_swap **data)
 {
 	swap((*data)->stack_a);
+	if (!(*data)->is_checker)
+		ft_printf("sa\n");
 	(*data)->operation_count++;
 }
 
 void	sb(t_push_swap **data)
 {
 	swap((*data)->stack_b);
+	if (!(*data)->is_checker)
+		ft_printf("sb\n");
 	(*data)->operation_count++;
 	
 }
@@ -29,6 +33,8 @@ void	ss(t_push_swap **data)
 {
 	swap((*data)->stack_a);
 	swap((*data)->stack_b);
+	if (!(*data)->is_checker)
+		ft_printf("ss\n");
 	(*data)->operation_count--;
 
 }
@@ -36,6 +42,8 @@ void	ss(t_push_swap **data)
 void	pa(t_push_swap **data)
 {
 	push((*data)->stack_a, (*data)->stack_b);
+	if (!(*data)->is_checker)
+		ft_printf("pa\n");
 	(*data)->operation_count++;
 
 }
@@ -43,6 +51,8 @@ void	pa(t_push_swap **data)
 void	pb(t_push_swap **data)
 {
 	push((*data)->stack_b, (*data)->stack_a);
+	if (!(*data)->is_checker)
+		ft_printf("pb\n");
 	(*data)->operation_count++;
 
 }

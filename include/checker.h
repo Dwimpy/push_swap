@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 00:55:11 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:39:26 by arobu            ###   ########.fr       */
+/*   Created: 2023/01/04 22:26:14 by arobu             #+#    #+#             */
+/*   Updated: 2023/01/04 23:03:00 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/parser.h"
-#include "push_swap.h"
+#include "../include/get_next_line.h"
+#include "../include/push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	t_parsed_data	parsed_data;
-	int				is_checker;
-
-	is_checker = 0;
-	parse_arguments(argc, argv, is_checker);
-	parsed_data = get_data(argc, argv);
-	push_swap(&parsed_data);
-	free_parser(&parsed_data);
-}
+void	checker(t_parsed_data *input_data);
+void	checker_init(t_push_swap **data, t_parsed_data *input_data);
+int		checker_is_sorted(t_push_swap *data);
+void	read_and_execute(t_push_swap **data, char	*str);
