@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2023/01/05 14:52:44 by arobu            ###   ########.fr        #
+#    Updated: 2023/01/05 14:58:08 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,9 +84,6 @@ bonus:	$(CHECKER)
 
 $(CHECKER): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PUSH_SWAP_OBJS) $(MAIN_CHECKER) $(LDLFLAGS)
-	@echo "$(CYAN)Push Swap built successfully.$(DEF_COLOR)"
-
-norm:
-			@norminette $(SRC_DIR) $(INCLUDE) | grep -v OK
+	@echo "$(CYAN)Checker built successfully.$(DEF_COLOR)"
 		
-.PHONY:		all NAME libft clean fclean re norm
+.PHONY:		all NAME libft clean fclean re
