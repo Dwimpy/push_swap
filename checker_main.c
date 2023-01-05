@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:22:28 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:39:06 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 04:25:39 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	main(int argc, char **argv)
 	parse_arguments(argc, argv, is_checker);
 	parsed_data = get_data(argc, argv);
 	checker(&parsed_data);
-	//free_parser(&parsed_data);
+	free_parser(&parsed_data);
 }

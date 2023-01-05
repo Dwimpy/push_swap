@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2023/01/04 23:08:53 by arobu            ###   ########.fr        #
+#    Updated: 2023/01/05 03:31:13 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ AR			= ar rcs
 
 DEF_COLOR = \033[0;39m
 RED = \033[0;91m
-GREEN = \033[0;92m
+GREEN = \033[0;32m
 YELLOW = \033[0;93m
 BLUE = \033[0;94m
 MAGENTA = \033[0;95m
@@ -48,7 +48,7 @@ WHITE = \033[0;97m
 PUSH_SWAP_SRCS	=	$(wildcard $(SRC_DIR)/*.c)
 PUSH_SWAP_OBJS	= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(PUSH_SWAP_SRCS))
 
-all:  $(NAME)
+all: libft $(NAME)
 
 $(NAME): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PUSH_SWAP_OBJS) $(MAIN_FILE) $(LDLFLAGS)
@@ -73,7 +73,7 @@ fclean:		clean
 			@$(RM) -f $(NAME)
 			@$(RM) -f $(CHECKER)
 			@echo "$(CYAN)Executables successfully cleaned!$(DEF_COLOR)"
-#			@$(RM) -f $(LIBFT_LIB)
+			@$(RM) -f $(LIBFT_LIB)
 
 
 re:			fclean all

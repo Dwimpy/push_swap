@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 06:43:50 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:41:04 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 04:41:54 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	parse_arguments(int argc, char **argv, int is_checker)
 	
 	constraints = (t_constraints) {0, 0, 0, 0};
 	constraints.is_checker = is_checker;
+	is_empty_argv(argc, argv);
 	args = create_argument(argc, argv);
 	if (args != NULL)
 	{

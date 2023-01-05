@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:19:49 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:15:53 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 03:31:19 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ void	checker(t_parsed_data *input_data)
 		read_and_execute(&data, cmd);
 	}
 	if (checker_is_sorted(data) == 1 && is_empty((data)->stack_b))
-		ft_printf("\033[0;92mOK\n\033[0;39m");
+		ft_printf("\033[0;32mOK\n\033[0;39m");
 	else
 		ft_printf("\033[0;91mKO\n\033[0;39m");
 	ft_free_ps_data(data);
 }
-
 void	read_and_execute(t_push_swap **data, char	*str)
 {
 	if (ft_strncmp(str, "pa\n", 3) == 0)
@@ -58,6 +57,11 @@ void	read_and_execute(t_push_swap **data, char	*str)
 		rr(data);
 	else if (ft_strncmp(str, "rrr\n", 3) == 0)
 		rrr(data);
+	else
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 }
 
 void	checker_init(t_push_swap **data, t_parsed_data *input_data)

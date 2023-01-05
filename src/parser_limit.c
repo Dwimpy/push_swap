@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:13:33 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 22:06:10 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 04:37:54 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,20 @@ int	check_int_max(char **split_args, int args_size)
 		i++;
 	}
 	return (0);
+}
+
+int	is_empty_argv(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_strlen(argv[i]) == 0 && argv[i][0] == '\0')
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		i++;
+	}
 }

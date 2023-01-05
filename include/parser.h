@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:33:53 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:40:09 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 04:32:16 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	parse_arguments(int argc, char **argv, int is_checker);
 char			*create_argument(int argc, char **argv);
 
 t_parsed_data	get_data(int argc, char **argv);
+int				is_empty_argv(int argc, char **argv);
 int				invalid_input(t_constraints c);
 int				is_valid_data(char **split_args, int args_size);
 int				check_duplicates(char **split_args, int args_size);
