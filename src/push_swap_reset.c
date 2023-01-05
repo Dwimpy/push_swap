@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 21:57:43 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 22:02:23 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:39:58 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	rotate_stack_to_lowest(t_push_swap **data)
 {
 	t_node	*first;
 	int		i;
-	
+
 	first = (*data)->stack_a->front;
 	i = 0;
 	while (first->index != 1)

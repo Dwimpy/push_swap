@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 21:03:35 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 15:42:34 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:43:13 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*bubble_sort(t_push_swap *data)
 	int	i;
 	int	j;
 	int	tmp;
-	
+
 	arr = copy_queue(data->stack_a);
 	i = 0;
 	while (i < data->stack_a->size)
@@ -36,7 +36,7 @@ int	*bubble_sort(t_push_swap *data)
 		}
 		i++;
 	}
-	return (arr);	
+	return (arr);
 }
 
 void	assign_index_to_nodes(t_push_swap **data)
@@ -44,7 +44,7 @@ void	assign_index_to_nodes(t_push_swap **data)
 	int		*arr;
 	t_node	*first;
 	int		i;
-	
+
 	arr = bubble_sort(*data);
 	first = (*data)->stack_a->front;
 	i = 0;

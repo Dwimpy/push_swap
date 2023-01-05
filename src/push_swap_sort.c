@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:48:00 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/02 17:05:25 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:38:27 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_initial_values(t_push_swap **data)
 {
 	int		highest_index;
 	t_node	*first;
-	
+
 	first = (*data)->stack_a->front;
 	highest_index = 0;
 	while (first != NULL)

@@ -6,13 +6,13 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 08:25:03 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 22:06:56 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:41:57 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parser.h"
 
-int get_size(char **split_args)
+int	get_size(char **split_args)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	invalid_input(t_constraints c)
 		|| c.no_arguments == 1 || c.invalid_limit == 1);
 }
 
-int is_sorted(char **split_args, int args_size)
+int	is_sorted(char **split_args, int args_size)
 {
 	int		i;
 
@@ -44,11 +44,12 @@ int is_sorted(char **split_args, int args_size)
 
 t_parsed_data	get_data(int argc, char **argv)
 {
-	char	*data;
-	char	**str;
-	int		size;
-	int		i;
-	t_parsed_data parsed_data;
+	char			*data;
+	char			**str;
+	int				size;
+	int				i;
+	t_parsed_data	parsed_data;
+
 	i = 0;
 	parsed_data.size = 0;
 	data = create_argument(argc, argv);
@@ -68,8 +69,8 @@ t_parsed_data	get_data(int argc, char **argv)
 
 void	ft_free(char **str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (str)
 	{

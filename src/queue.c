@@ -6,13 +6,13 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:59:01 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:42:21 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:39:01 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/queue.h"
 
-t_node *new_node(int value)
+t_node	*new_node(int value)
 {
 	t_node	*new_node;
 
@@ -26,9 +26,9 @@ t_node *new_node(int value)
 	return (new_node);
 }
 
-t_queue	*create_queue()
+t_queue	*create_queue(void)
 {
-	t_queue *queue;
+	t_queue	*queue;
 
 	queue = (t_queue *)malloc(sizeof(t_queue));
 	queue->front = NULL;
@@ -45,15 +45,14 @@ int	is_empty(t_queue *queue)
 	if (queue->size == 0)
 		return (1);
 	else
-		return(0);
+		return (0);
 }
 
-void	enqueue(t_queue *queue, int	value)
+void	enqueue(t_queue *queue, int value)
 {
 	t_node	*node;
 
 	node = new_node(value);
-	
 	if (is_empty(queue))
 	{
 		queue->front = node;
@@ -64,7 +63,6 @@ void	enqueue(t_queue *queue, int	value)
 		node -> prev = queue -> rear;
 		queue -> rear -> next = node;
 		queue -> rear = queue -> rear -> next;
-		
 	}
 	queue->size++;
 }
@@ -81,12 +79,11 @@ void	dequeue(t_queue *queue)
 		queue -> front = queue -> front -> next;
 		queue -> front -> prev = NULL;
 	}
-	else 
+	else
 	{
 		queue -> front = NULL;
 		queue -> rear = NULL;
 	}
-
 	queue->size--;
 	free(head);
 }

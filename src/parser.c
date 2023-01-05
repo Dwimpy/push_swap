@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 06:43:50 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 04:41:54 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:42:33 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@ void	input_checker(t_constraints *constraints, int argc, \
 
 void	parse_arguments(int argc, char **argv, int is_checker)
 {
-	char	*args;
-	char	**split_args;
-	int		args_size;
-	t_constraints constraints;
-	
-	constraints = (t_constraints) {0, 0, 0, 0};
+	char			*args;
+	char			**split_args;
+	int				args_size;
+	t_constraints	constraints;
+
+	constraints = (t_constraints){0, 0, 0, 0, 0};
 	constraints.is_checker = is_checker;
 	is_empty_argv(argc, argv);
 	args = create_argument(argc, argv);
+	split_args = NULL;
+	args_size = 0;
 	if (args != NULL)
 	{
 		split_args = ft_split(args, ' ');
@@ -86,7 +88,7 @@ int	is_valid_data(char **split_args, int args_size)
 {
 	int		i;
 	int		invalid;
-	
+
 	i = 0;
 	invalid = 0;
 	while (i < args_size)
@@ -103,14 +105,14 @@ int	check_duplicates(char **split_args, int args_size)
 	int		i;
 	int		j;
 	int		number;
-	
+
 	i = 0;
 	j = 0;
 	while (i < args_size - 1)
 	{
 		j = i + 1;
 		number = ft_atoi(split_args[i]);
-		while (j < args_size )
+		while (j < args_size)
 		{
 			if (number == ft_atoi(split_args[j]))
 				return (1);
@@ -120,4 +122,3 @@ int	check_duplicates(char **split_args, int args_size)
 	}
 	return (0);
 }
-

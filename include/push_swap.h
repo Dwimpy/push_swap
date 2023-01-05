@@ -6,20 +6,20 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:54:38 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:12:07 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:45:36 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "queue.h"
-#include "parser.h"
+# include "queue.h"
+# include "parser.h"
 
 typedef struct s_push_swap
 {
-	t_queue *stack_a;
-	t_queue *stack_b;
+	t_queue	*stack_a;
+	t_queue	*stack_b;
 	int		lowest_index;
 	int		highest_index;
 	int		operation_count;

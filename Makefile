@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2023/01/05 03:31:13 by arobu            ###   ########.fr        #
+#    Updated: 2023/01/05 14:52:44 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MAIN_CHECKER	= checker_main.c
 # Compiler
 
 CC			= cc
-CFLAGS		= #-fsanitize=address -g3 #-Wall -Werror -Wextra 
+CFLAGS		= -Wall -Werror -Wextra 
 LDLFLAGS	= -L./libft/ -lft
 
 #Archive and Remove
@@ -48,7 +48,9 @@ WHITE = \033[0;97m
 PUSH_SWAP_SRCS	=	$(wildcard $(SRC_DIR)/*.c)
 PUSH_SWAP_OBJS	= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(PUSH_SWAP_SRCS))
 
-all: libft $(NAME)
+all: libft NAME bonus
+
+NAME: $(NAME)
 
 $(NAME): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(PUSH_SWAP_OBJS) $(MAIN_FILE) $(LDLFLAGS)
@@ -64,7 +66,7 @@ $(OBJ_DIR):
 libft:
 			@make all -C $(LIBFT_FOLDER)
 
- clean:
+clean:
 			@$(RM) -rdf $(OBJ_DIR)
 			@make clean -C $(LIBFT_FOLDER)
 			@echo "$(CYAN)Libraries successfully cleaned!$(DEF_COLOR)"
@@ -87,4 +89,4 @@ $(CHECKER): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 norm:
 			@norminette $(SRC_DIR) $(INCLUDE) | grep -v OK
 		
-.PHONY:		all libft clean fclean re norm
+.PHONY:		all NAME libft clean fclean re norm

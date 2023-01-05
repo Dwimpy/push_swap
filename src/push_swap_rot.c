@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:13:10 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/04 23:13:32 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:38:40 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ra(t_push_swap **data)
 	if (!(*data)->is_checker)
 		ft_printf("ra\n");
 	(*data)->operation_count++;
-
 }
 
 void	rb(t_push_swap **data)
@@ -27,7 +26,6 @@ void	rb(t_push_swap **data)
 	if (!(*data)->is_checker)
 		ft_printf("rb\n");
 	(*data)->operation_count++;
-
 }
 
 void	rr(t_push_swap **data)
@@ -37,7 +35,6 @@ void	rr(t_push_swap **data)
 	if (!(*data)->is_checker)
 		ft_printf("rr\n");
 	(*data)->operation_count--;
-
 }
 
 void	rra(t_push_swap **data)
@@ -46,7 +43,6 @@ void	rra(t_push_swap **data)
 	if (!(*data)->is_checker)
 		ft_printf("rra\n");
 	(*data)->operation_count++;
-
 }
 
 void	rrb(t_push_swap **data)
@@ -55,5 +51,4 @@ void	rrb(t_push_swap **data)
 	if (!(*data)->is_checker)
 		ft_printf("rrb\n");
 	(*data)->operation_count++;
-
 }

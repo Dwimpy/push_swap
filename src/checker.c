@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:19:49 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 03:31:19 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:44:40 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	checker(t_parsed_data *input_data)
 	{
 		cmd = get_next_line(STDIN_FILENO);
 		if (cmd == NULL)
-			break;
+			break ;
 		read_and_execute(&data, cmd);
+		free(cmd);
 	}
 	if (checker_is_sorted(data) == 1 && is_empty((data)->stack_b))
 		ft_printf("\033[0;32mOK\n\033[0;39m");
@@ -33,6 +34,7 @@ void	checker(t_parsed_data *input_data)
 		ft_printf("\033[0;91mKO\n\033[0;39m");
 	ft_free_ps_data(data);
 }
+
 void	read_and_execute(t_push_swap **data, char	*str)
 {
 	if (ft_strncmp(str, "pa\n", 3) == 0)
@@ -58,15 +60,18 @@ void	read_and_execute(t_push_swap **data, char	*str)
 	else if (ft_strncmp(str, "rrr\n", 3) == 0)
 		rrr(data);
 	else
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
+		exit_incorrect_instruction();
+}
+
+void	exit_incorrect_instruction(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }
 
 void	checker_init(t_push_swap **data, t_parsed_data *input_data)
 {
-	int	i;
+	size_t	i;
 
 	(*data) = (t_push_swap *)malloc(sizeof(t_push_swap));
 	(*data)->stack_a = create_queue();
@@ -80,12 +85,12 @@ void	checker_init(t_push_swap **data, t_parsed_data *input_data)
 		enqueue((*data)->stack_a, input_data->arguments[i]);
 }
 
-int		checker_is_sorted(t_push_swap *data)
+int	checker_is_sorted(t_push_swap *data)
 {
 	t_node	*node;
 
 	node = (*data).stack_a->front;
-	while (node->next!= NULL)
+	while (node->next != NULL)
 	{
 		if (node->data > node -> next -> data)
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 15:43:09 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:31:07 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:41:13 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	get_cost_a_out_bounds(t_node *a, t_node *b)
 	cost_a = 1;
 	while (a->next != NULL)
 	{
-		if (b->index > a->index && b->index < a->next->index) 
-			break;
+		if (b->index > a->index && b->index < a->next->index)
+			break ;
 		cost_a++;
 		a = a->next;
 	}
@@ -64,7 +64,7 @@ int	get_cost_a_in_bounds(t_node *a, int lowest_index)
 	while (a->index != lowest_index)
 	{
 		cost_a++;
-		a = a->next; 
+		a = a->next;
 	}
 	return (cost_a);
 }

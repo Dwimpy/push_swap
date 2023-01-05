@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:44:26 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:42:12 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:42:41 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	*copy_queue(t_queue *stack)
 	int		*arr;
 	t_node	*first;
 	int		i;
-	
+
 	arr = (int *)malloc(sizeof(int) * stack->size);
 	first = stack->front;
 	i = 0;

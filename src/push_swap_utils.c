@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:08:54 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 16:02:37 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:39:50 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	push_to_b(t_push_swap **data)
 	int	pushed;
 	int	i;
 	int	stack_size;
-	
+
 	pushed = 0;
 	i = 0;
 	stack_size = (*data)->stack_a->size;

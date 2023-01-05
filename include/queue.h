@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:51:00 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:41:52 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:45:23 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../libft/include/ft_printf.h"
 
-typedef struct s_node t_node;
+typedef struct s_node	t_node;
 
 typedef struct s_node
 {
@@ -25,7 +25,6 @@ typedef struct s_node
 	int		cost_b;
 	t_node	*next;
 	t_node	*prev;
-	
 }				t_node;
 
 typedef struct s_queue
@@ -38,15 +37,15 @@ typedef struct s_queue
 	int		operations;
 }				t_queue;
 
-t_queue	*create_queue();
-t_node 	*new_node(int value);
+t_queue	*create_queue(void);
+t_node	*new_node(int value);
 t_node	*copy_node(t_node *node);
 t_node	*swap_nodes(t_node *node1, t_node *node2);
 
 int		is_empty(t_queue *queue);
 int		*copy_queue(t_queue *stack);
 
-void	enqueue(t_queue *queue, int	value);
+void	enqueue(t_queue *queue, int value);
 void	dequeue(t_queue *queue);
 void	rotate(t_queue *stack);
 void	r_rotate(t_queue *stack);

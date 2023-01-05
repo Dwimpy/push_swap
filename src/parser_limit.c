@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:13:33 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 04:37:54 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:22:36 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_int_max(char **split_args, int args_size)
 	return (0);
 }
 
-int	is_empty_argv(int argc, char **argv)
+void	is_empty_argv(int argc, char **argv)
 {
 	int	i;
 

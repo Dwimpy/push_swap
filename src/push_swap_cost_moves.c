@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 19:06:07 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/03 23:35:56 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:40:34 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	cost_efficient_rev_rotate(t_push_swap **data, int **arr)
 	}
 }
 
-static void cost_efficient_rotate(t_push_swap **data, int **arr)
+static void	cost_efficient_rotate(t_push_swap **data, int **arr)
 {
 	while ((*arr)[0] > 0 && (*arr)[1] > 0)
 	{
@@ -34,7 +34,7 @@ static void cost_efficient_rotate(t_push_swap **data, int **arr)
 	}
 }
 
-static void cost_eff_rotate_a(t_push_swap **data, int **arr)
+static void	cost_eff_rotate_a(t_push_swap **data, int **arr)
 {
 	while ((*arr)[0])
 	{
@@ -51,7 +51,7 @@ static void cost_eff_rotate_a(t_push_swap **data, int **arr)
 	}
 }
 
-static void cost_eff_rotate_b(t_push_swap **data, int **arr)
+static void	cost_eff_rotate_b(t_push_swap **data, int **arr)
 {
 	while ((*arr)[1])
 	{

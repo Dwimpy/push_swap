@@ -6,7 +6,7 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 15:49:17 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 03:24:18 by arobu            ###   ########.fr       */
+/*   Updated: 2023/01/05 14:41:24 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void	push_swap(t_parsed_data *input_data)
 {	
-	t_push_swap *ps_data;
-	t_push_swap *data;
+	t_push_swap	*data;
 	int			*costs;
 
 	costs = (int *)malloc(sizeof(int) * 2);
@@ -37,7 +36,7 @@ void	push_swap(t_parsed_data *input_data)
 
 void	push_swap_init(t_push_swap **data, t_parsed_data *input_data)
 {
-	int	i;
+	size_t	i;
 
 	(*data) = (t_push_swap *)malloc(sizeof(t_push_swap));
 	(*data)->stack_a = create_queue();
