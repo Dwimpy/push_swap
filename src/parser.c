@@ -6,11 +6,11 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 06:43:50 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:42:33 by arobu            ###   ########.fr       */
+/*   Updated: 2023/02/27 14:03:00 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/parser.h"
+#include "parser.h"
 
 void	input_checker(t_constraints *constraints, int argc, \
 					char **split_args, int args_size);

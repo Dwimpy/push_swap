@@ -6,13 +6,13 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:33:53 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:39:21 by arobu            ###   ########.fr       */
+/*   Updated: 2023/02/27 14:01:02 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-# include "../libft/include/ft_printf.h"
+# include "ft_printf.h"
 
 typedef struct s_constraints
 {

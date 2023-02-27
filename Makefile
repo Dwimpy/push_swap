@@ -6,7 +6,7 @@
 #    By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 14:38:01 by arobu             #+#    #+#              #
-#    Updated: 2023/01/05 14:58:08 by arobu            ###   ########.fr        #
+#    Updated: 2023/02/27 14:11:58 by arobu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,20 @@
 
 NAME			= push_swap
 CHECKER			= checker
-INCLUDE			= -I include/
+INCLUDE			= -I ./include/ -I ./libft-printf/include -I ./get_next_line/gnl/include
 SRC_DIR			= ./src
 OBJ_DIR			= ./obj
-LIBFT_FOLDER	= ./libft
-LIBFT_LIB		= ./libft/libft.a
+LIBFT_FOLDER	= ./libft-printf
+LIBFT_LIB		= ./libft-printf/libft.a
+GNL_LIB			= ./get_next_line/gnl/libgnl.a
 MAIN_FILE		= main.c
+GNL_FOLDER		= ./get_next_line
 MAIN_CHECKER	= checker_main.c
 # Compiler
 
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra 
-LDLFLAGS	= -L./libft/ -lft
+LDLFLAGS	= -L./libft-printf/ -lft -L$(GNL_FOLDER)/ -lgnl
 
 #Archive and Remove
 
@@ -48,7 +50,7 @@ WHITE = \033[0;97m
 PUSH_SWAP_SRCS	=	$(wildcard $(SRC_DIR)/*.c)
 PUSH_SWAP_OBJS	= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(PUSH_SWAP_SRCS))
 
-all: libft NAME bonus
+all: libft gnl NAME bonus
 
 NAME: $(NAME)
 
@@ -58,7 +60,7 @@ $(NAME): $(PUSH_SWAP_OBJS) | $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	@ echo "$(MAGENTA)Compiling file $<.$(DEF_COLOR)"
-	@ $(CC) $(CFLAGS) -c $< -o $@ 
+	@ $(CC) $(INCLUDE) $(CFLAGS) -c $< -o $@ 
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
@@ -66,14 +68,19 @@ $(OBJ_DIR):
 libft:
 			@make all -C $(LIBFT_FOLDER)
 
+gnl:
+			@make all -C $(GNL_FOLDER)
+
 clean:
 			@$(RM) -rdf $(OBJ_DIR)
+			@make clean -C $(GNL_FOLDER)
 			@make clean -C $(LIBFT_FOLDER)
 			@echo "$(CYAN)Libraries successfully cleaned!$(DEF_COLOR)"
 
 fclean:		clean
 			@$(RM) -f $(NAME)
 			@$(RM) -f $(CHECKER)
+			@$(RM) -f $(GNL_LIB)
 			@echo "$(CYAN)Executables successfully cleaned!$(DEF_COLOR)"
 			@$(RM) -f $(LIBFT_LIB)
 

@@ -6,14 +6,14 @@
 /*   By: arobu <arobu@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 00:51:00 by arobu             #+#    #+#             */
-/*   Updated: 2023/01/05 14:45:23 by arobu            ###   ########.fr       */
+/*   Updated: 2023/02/27 13:59:51 by arobu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef QUEUE_H
 # define QUEUE_H
 
-# include "../libft/include/ft_printf.h"
+# include "ft_printf.h"
 
 typedef struct s_node	t_node;
 
